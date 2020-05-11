@@ -1,114 +1,51 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+import React, { Component } from 'react';
+import { StyleSheet,View } from 'react-native';
+import { Container, Header, Content, Form, Item, Input, Label,Button,Text } from 'native-base';
+export default class FloatingLabelExample extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Header />
+          <Form>
+            <Item floatingLabel last>
+              <Label style={{textAlign:'center'}}>Username</Label>
+              <Input />
+            </Item>
+            <Item floatingLabel last>
+              <Label style={{textAlign:'center'}} >Password</Label>
+              <Input />
+            </Item>
+            <View style={styles.ButtonVie}>
+            <Button style={styles.Butn}  rounded><Text> Add Item </Text></Button>
+            <Button style={styles.Butnr} rounded><Text> Remove Item </Text></Button>
             </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
-
+          </Form>
+      </View>
+    );
+  }
+}
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  ButtonVie:
+  {
+    marginTop:20,
+    padding:20,
+    flexDirection:'row',
+    justifyContent:'space-between'
   },
-  body: {
-    backgroundColor: Colors.white,
+  Butn:
+  {
+    padding:10,
+    width:130,
+    backgroundColor:'green'
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+  Butnr:
+  {
+    padding:10,
+    width:130,
+    backgroundColor:'red'
+  }
 });
-
-export default App;
